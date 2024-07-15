@@ -28,6 +28,7 @@ public class UserService {
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setDob(request.getDob());
+        user.setStatus(1);
 
         return userRepository.save(user);
     }
