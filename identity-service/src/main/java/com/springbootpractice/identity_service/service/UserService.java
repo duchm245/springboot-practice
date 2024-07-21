@@ -1,5 +1,6 @@
 package com.springbootpractice.identity_service.service;
 
+import com.springbootpractice.identity_service.exception.ResourceNotFoundException;
 import com.springbootpractice.identity_service.model.dto.request.UserCreateRequest;
 import com.springbootpractice.identity_service.model.dto.request.UserUpdateRequest;
 import com.springbootpractice.identity_service.model.entity.User;
@@ -48,8 +49,8 @@ public class UserService {
      * @param userId The id of the user to be retrieved.
      * @return The user entity corresponding to the provided user id.
      */
-    public User getUser(String userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found: " + userId));
+    public User getUserById(String userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("Not found userId=" + userId));
     }
 
     /**

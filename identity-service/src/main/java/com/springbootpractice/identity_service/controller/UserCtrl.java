@@ -36,8 +36,8 @@ public class UserCtrl {
     }
 
     @GetMapping("/{userId}")
-    public User getUser(@PathVariable("userId" ) String userId) {
-        return userService.getUser(userId);
+    public ResponseData<User> getUser(@PathVariable("userId" ) String userId) {
+        return new ResponseData<>(HttpStatus.OK.value(), "", userService.getUserById(userId));
     }
 
     @PutMapping("/{userId}")
